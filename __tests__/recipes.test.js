@@ -89,6 +89,7 @@ describe('recipe routes', () => {
       .get(`/api/v1/recipes/${recipe._id}`)
       .then(res => {
         expect(res.body).toEqual({
+          Event:expect.any(Array),
           _id: expect.any(String),
           name: 'cookies',
           ingredients: [
