@@ -96,7 +96,7 @@ describe('event routes', () => {
 
   it('updates an event by id', async() => {
     const event = await Event.create({
-      recipeId: '1234',
+      recipeId: recipe._id,
       dateOfEvent: Date.now(),
       notes: 'It went well',
       rating: 4
@@ -108,7 +108,7 @@ describe('event routes', () => {
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          recipeId: '1234',
+          recipeId: res.body.recipeId.toString(),
           dateOfEvent: expect.any(String),
           notes: 'It went well',
           rating: 5,
